@@ -5,17 +5,18 @@ public class Main {
 
         Broker broker = new Broker();
 
-        broker.addObserver(new StockAgency("BrokerAssociated"));
-        broker.addObserver(new StockAgency("BrokersBreaking"));
-        broker.addObserver(new StockAgency("WeLoveMoney"));
-        broker.addObserver(new StockAgency("EveryoneHasAPrice"));
+        broker.addObserver(new IndividualStockAgency("BrokerAssociated"));
+        broker.addObserver(new IndividualStockAgency("BrokersBreaking"));
+        broker.addObserver(new IndividualStockAgency("WeLoveMoney"));
+        broker.addObserver(new IndividualStockAgency("EveryoneHasAPrice"));
 
-        broker.notifyObservers();
+        broker.notifyObservers("up");
 
         broker.removeObserver("WeLoveMoney");
 
         System.out.println("\n----");
-        broker.notifyObservers();
+        broker.notifyObservers("down");
+
         System.out.println("\n --- Listed observers ---");
         broker.showObservers();
     }

@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Broker {
 
-    List<StockAgency> observers = new ArrayList<>();
-    List<StockAgency> subscribers = new ArrayList<>();
+    List<IndividualStockAgency> observers = new ArrayList<>();
+    List<IndividualStockAgency> subscribers = new ArrayList<>();
 
-    void addObserver(StockAgency observer) {
+    void addObserver(IndividualStockAgency observer) {
         observers.add(observer);
         subscribers.add(observer);
     }
@@ -17,14 +17,14 @@ public class Broker {
         subscribers.removeIf(observer -> observer.getName().equals(observerName));
     }
 
-    void notifyObservers() {
-        for (StockAgency observer : subscribers) {
-            observer.notifyObserver();
+    void notifyObservers(String marketChange) {
+        for (IndividualStockAgency observer : subscribers) {
+            observer.getNotification(marketChange);
         }
     }
 
     void showObservers() {
-        for (StockAgency observer : observers) {
+        for (IndividualStockAgency observer : observers) {
             System.out.println(observer.getName());
         }
     }
