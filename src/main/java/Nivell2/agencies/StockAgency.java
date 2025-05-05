@@ -1,4 +1,4 @@
-package Nivell2;
+package Nivell2.agencies;
 
 public interface StockAgency {
 

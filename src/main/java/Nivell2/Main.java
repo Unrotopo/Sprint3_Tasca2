@@ -1,5 +1,8 @@
 package Nivell2;
 
+import Nivell2.agencies.IndividualStockAgency;
+import Nivell2.intermediary.Broker;
+
 public class Main {
     public static void main(String[] args) {
 
