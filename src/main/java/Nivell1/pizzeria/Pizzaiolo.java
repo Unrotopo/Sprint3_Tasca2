@@ -1,10 +1,13 @@
 package Nivell1.pizzeria;
 
-import Nivell1.builders.PizzaBuilder;
+import Nivell1.interfaces.PizzaBuilder;
 
 public class Pizzaiolo {
 
-    public Pizza makePizza(PizzaBuilder<?> pizzaBuilder) {
-        return pizzaBuilder.build();
+    public Pizza makePizza(PizzaBuilder pizzaBuilder) {
+        pizzaBuilder.buildSize();
+        pizzaBuilder.buildDoughType();
+        pizzaBuilder.buildToppings();
+        return pizzaBuilder.bake();
     }
 }

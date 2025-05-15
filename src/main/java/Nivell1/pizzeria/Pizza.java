@@ -4,32 +4,36 @@ import java.util.List;
 
 public class Pizza {
 
-    private final String name;
-    private final int size;
-    private final String doughType;
-    private final List<String> toppings;
+    private String name;
+    private int size;
+    private String doughType;
+    private List<String> toppings;
 
-    public Pizza(String name, int size, String doughType, List<String> toppings) {
+    public Pizza(String name) {
         this.name = name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSize(int size) {
         this.size = size;
+    }
+
+    public void setDoughType(String doughType) {
         this.doughType = doughType;
+    }
+
+    public void setToppings(List<String> toppings) {
         this.toppings = toppings;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public String getDoughType() {
-        return doughType;
-    }
-
-    public List<String> getToppings() {
-        return toppings;
     }
 
     @Override
     public String toString() {
-        return "\n--- Pizza " + name + " ---\n\tSize: " + size + "\n\tDough: " + doughType + "\n\tToppings: " + toppings.toString();
+        return "\n--- Pizza " + name +
+                " ---\n\tSize: " + size +
+                "\n\tDough: " + doughType +
+                "\n\tToppings: " + toppings.toString();
     }
 }

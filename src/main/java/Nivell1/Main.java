@@ -1,35 +1,28 @@
 package Nivell1;
 
 import Nivell1.builders.*;
-import Nivell1.pizzeria.Pizzaiolo;
-
-import java.util.List;
+import Nivell1.interfaces.PizzaBuilder;
+import Nivell1.pizzeria.*;
 
 public class Main {
     public static void main(String[] args) {
 
+        PizzaBuilder carbonaraBuilder = new CarbonaraPizzaBuilder();
+        PizzaBuilder hawaianBuilder = new HawaianPizzaBuilder();
+        PizzaBuilder pepperoniBuilder = new PepperoniPizzaBuilder();
+
         Pizzaiolo francesco = new Pizzaiolo();
 
-        HawaianPizzaBuilder hawaianPizza = new HawaianPizzaBuilder();
-        PepperoniPizzaBuilder pepperoniPizza = new PepperoniPizzaBuilder();
-        CarbonaraPizzaBuilder carbonaraPizza = new CarbonaraPizzaBuilder();
+        francesco.makePizza(carbonaraBuilder);
+        Pizza carbonara = carbonaraBuilder.bake();
+        System.out.println(carbonara);
 
-        List<String> extraToppingsHawai = List.of("Tabasco");
-        List<String> extraToppingsPepperoni = List.of("Extra cheese", "Red onion");
+        francesco.makePizza(hawaianBuilder);
+        Pizza hawaian = hawaianBuilder.bake();
+        System.out.println(hawaian);
 
-        hawaianPizza.setSize(10)
-                .setDoughType("Thin")
-                .setToppings(extraToppingsHawai);
-
-        pepperoniPizza.setSize(16)
-                .setDoughType("Thick")
-                .setToppings(extraToppingsPepperoni);
-
-        carbonaraPizza
-                .setSize(20);
-
-        System.out.println(francesco.makePizza(hawaianPizza));
-        System.out.println(francesco.makePizza(pepperoniPizza));
-        System.out.println(francesco.makePizza(carbonaraPizza));
+        francesco.makePizza(pepperoniBuilder);
+        Pizza pepperoni = pepperoniBuilder.bake();
+        System.out.println(pepperoni);
     }
 }

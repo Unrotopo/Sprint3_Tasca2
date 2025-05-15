@@ -1,37 +1,39 @@
 package Nivell1.builders;
 
+import Nivell1.interfaces.PizzaBuilder;
 import Nivell1.pizzeria.Pizza;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class HawaianPizzaBuilder implements PizzaBuilder<HawaianPizzaBuilder> {
 
-    private int size = 10;
-    private String doughType = "Thin";
-    private List<String> toppings = new ArrayList<>(Arrays.asList("Sauce", "Ham", "Pineapple", "Cheese"));
+public class HawaianPizzaBuilder implements PizzaBuilder {
 
-    @Override
-    public HawaianPizzaBuilder setSize(int size) {
-        this.size = size;
-        return this;
+    private Pizza pizza;
+    private String name = "Hawaian";
+    private List<String> hawaianToppings = Arrays.asList("Tomato", "Mozzarella", "Ham", "Pinnaple");
+
+    public HawaianPizzaBuilder() {
+        pizza = new Pizza(name);
     }
 
     @Override
-    public HawaianPizzaBuilder setDoughType(String doughType) {
-        this.doughType = doughType;
-        return this;
+    public void buildSize() {
+        pizza.setSize(18);
     }
 
     @Override
-    public void setToppings(List<String> extraToppings) {
-        this.toppings.addAll(extraToppings);
+    public void buildDoughType() {
+        pizza.setDoughType("Thick");
     }
 
     @Override
-    public Pizza build() {
-        String NAME = "Hawaian";
-        return new Pizza(NAME, size, doughType, toppings);
+    public void buildToppings() {
+        pizza.setToppings(hawaianToppings);
+    }
+
+    @Override
+    public Pizza bake() {
+        return this.pizza;
     }
 }
