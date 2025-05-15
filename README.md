@@ -1,62 +1,57 @@
-Descripció
-Aquest projecte aprofundeix en els patrons de construcció de programari mitjançant la seva implementació en Java utilitzant Gradle. Cada nivell del projecte introdueix un patró de disseny diferent per demostrar com estructurar millor el codi i fer-lo més modular, reutilitzable i mantenible.
+# Patrons de Construcció de Programari
 
-Nivell 1 - Builder
-Objectiu
-Desenvolupar un sistema de gestió de comandes de pizzes utilitzant el patró Builder.
+## Descripció
 
-Estructura
-Classe Pizza: amb atributs size (mida), dough (massa) i toppings (ingredients).
+Aquest projecte aprofundeix en els **patrons de construcció de programari** mitjançant la seva implementació en **Java** utilitzant **Gradle**. Cada nivell del projecte introdueix un patró de disseny diferent per demostrar com estructurar millor el codi i fer-lo més modular, reutilitzable i mantenible.
 
-Interfície PizzaBuilder: defineix els mètodes per configurar les propietats de la pizza.
+---
 
-Constructors concrets: implementacions com HawaiianPizzaBuilder, VegetarianPizzaBuilder, etc.
+## Nivell 1 - Builder
 
-Classe MestrePizzer: rep un PizzaBuilder i construeix una pizza específica.
+### 🎯 Objectiu
 
-Classe Main: crea instàncies de builders i del pizzer per demostrar la construcció de diferents tipus de pizza.
+Desenvolupar un sistema de gestió de comandes de pizzes utilitzant el **patró Builder**.
 
-Nivell 2 - Observer
-Objectiu
-Implementar el patró Observer en un sistema de notificació de la borsa.
+### 🧱 Estructura
 
-Estructura
-Classe AgentDeBorsa (Observable): manté una llista d'observadors i notifica canvis en la borsa.
+- **Classe `Pizza`**: amb atributs `size` (mida), `dough` (massa) i `toppings` (ingredients).
+- **Interfície `PizzaBuilder`**: defineix els mètodes per configurar les propietats de la pizza.
+- **Constructors concrets**: implementacions com `HawaiianPizzaBuilder`, `VegetarianPizzaBuilder`, etc.
+- **Classe `MestrePizzer`**: rep un `PizzaBuilder` i construeix una pizza específica.
+- **Classe `Main`**: crea instàncies de builders i del pizzer per demostrar la construcció de diferents tipus de pizza.
 
-Classe AgenciaBorsa (Observer): s'inscriu per rebre notificacions.
+---
 
-Classe Main: simula pujades i baixades de la borsa i la notificació a les agències.
+## Nivell 2 - Observer
 
-Nivell 3 - Callback
-Objectiu
-Simular una passarel·la de pagament amb callbacks.
+### 🎯 Objectiu
 
-Estructura
-Interfície PagamentCallback: defineix el mètode per efectuar un pagament.
+Implementar el patró **Observer** en un sistema de notificació de la borsa.
 
-Implementacions concretes: per a targeta de crèdit, PayPal i compte bancari.
+### 🧱 Estructura
 
-Classe Passarel·laPagament: rep l'objecte de pagament i el processa invocant el callback.
+- **Classe `AgentDeBorsa` (Observable)**: manté una llista d'observadors i notifica canvis en la borsa.
+- **Classe `AgenciaBorsa` (Observer)**: s'inscriu per rebre notificacions.
+- **Classe `Main`**: simula pujades i baixades de la borsa i la notificació a les agències.
 
-Classe BotigaSabates: invoca la passarel·la i gestiona la resposta.
+---
 
-Requeriments tècnics
-Java 21
+## Nivell 3 - Callback
 
-Gradle com a sistema de construcció
+### 🎯 Objectiu
 
-Codi modular i orientat a objectes
+Simular una **passarel·la de pagament amb callbacks**.
 
-Exemple funcional en la classe Main per cada patró
+### 🧱 Estructura
 
-Execució
-bash
-Copiar
-Editar
-./gradlew run
-Assegura’t de tenir el JDK 21 instal·lat i configurat correctament.
+- **Interfície `PagamentCallback`**: defineix el mètode per efectuar un pagament.
+- **Implementacions concretes**: per a targeta de crèdit, PayPal i compte bancari.
+- **Classe `Passarel·laPagament`**: rep l'objecte de pagament i el processa invocant el callback.
+- **Classe `BotigaSabates`**: invoca la passarel·la i gestiona la resposta.
 
-Autoria
-Projecte desenvolupat com a part d’un exercici educatiu per practicar patrons de disseny en programació orientada a objectes.
+---
 
-Si vols que ho redacti en un altre idioma (castellà o anglès) o vols incloure instruccions d'ús més detallades, m'ho pots dir!
+## 🔧 Requeriments tècnics
+
+- **Java 21**
+- **Gradle** com a sistema de con
