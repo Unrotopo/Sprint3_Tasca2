@@ -1,6 +1,6 @@
 package Nivell2.agencies;
 
-public interface StockAgency {
+public interface Observer {
 
     void getNotification(String marketChange);
 }

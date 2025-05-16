@@ -1,6 +1,6 @@
 package Nivell2.agencies;
 
-public class IndividualStockAgency implements StockAgency {
+public class IndividualStockAgency implements Observer {
 
     private String name;
 

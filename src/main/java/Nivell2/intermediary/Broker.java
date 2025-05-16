@@ -5,7 +5,7 @@ import Nivell2.agencies.IndividualStockAgency;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Broker {
+public class Broker implements Observed {
 
     List<IndividualStockAgency> observers = new ArrayList<>();
     List<IndividualStockAgency> subscribers = new ArrayList<>();

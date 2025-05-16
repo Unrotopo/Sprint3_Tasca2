@@ -1,16 +1,18 @@
-package Nivell3.equity;
+package Nivell3.finance;
+
+import Nivell3.exceptions.NotEnoughFunds;
+import Nivell3.finance.interfaces.Payment;
 
 public class CreditCard implements Payment {
 
     private double balance = 500;
 
     @Override
-    public boolean processPayment(double price) {
+    public void processPayment(double price) {
         if (price > balance) {
-            return false;
+            throw new NotEnoughFunds(this);
         } else {
             balance = balance - price;
-            return true;
         }
     }
 

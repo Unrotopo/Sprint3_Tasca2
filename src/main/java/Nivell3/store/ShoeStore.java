@@ -1,7 +1,8 @@
 package Nivell3.store;
 
-import Nivell3.equity.Payment;
-import Nivell3.equity.PaymentGateway;
+import Nivell3.finance.interfaces.CallbackPayment;
+import Nivell3.finance.PaymentGateway;
+import Nivell3.finance.interfaces.Payment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,23 +29,14 @@ public class ShoeStore {
         return price;
     }
 
-    public void buyShoe(String shoeName, Payment payment) {
+    public void buyShoe(String shoeName, Payment payment, CallbackPayment callback) {
         double price = getPriceFromShoeName(shoeName);
-        System.out.println("\nProcessing payment for " + shoeName + " with price " + price);
-        boolean paymentSuccess = PaymentGateway.processOrderPayment(payment, price);
-        if (paymentSuccess) {
-            System.out.println("Payment successful");
-        } else {
-            System.out.println("Payment failed. Order cancelled");
-        }
+        System.out.println("\n... Processing payment for " + shoeName + " with price " + price);
+        gateway.process(payment, price, callback);
     }
 
     public void addShoe(Shoe... shoes) {
         inventory.addAll(Arrays.asList(shoes));
-    }
-
-    public List<Shoe> getInventory() {
-        return inventory;
     }
 
     public String showInventory() {
